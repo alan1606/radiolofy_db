@@ -1,2 +1,2 @@
-# radiolofy_db
+# radiology_db
 Db for conies
