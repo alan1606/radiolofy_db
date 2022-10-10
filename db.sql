@@ -49,7 +49,7 @@ create table receptionists(
     constraint foreign key(user_id) references users(id)
 );
 
-create table state(
+create table states(
 	id bigint unsigned not null auto_increment,
     `name` varchar(200) not null,
     abreviation varchar(10) not null,
@@ -61,10 +61,9 @@ create table patients(
     birth_state_id bigint unsigned not null,
     curp varchar(20) not null,
 	user_id bigint unsigned not null,
-	state_id bigint unsigned not null,
     constraint primary key (id),
     constraint foreign key(user_id) references users(id),
-    constraint foreign key(state_id) references state(id)
+    constraint foreign key(birth_state_id) references states(id)
 );
 
 create table specialties(
@@ -76,6 +75,7 @@ create table specialties(
 create table doctors(
 	id bigint unsigned not null auto_increment,
 	federal_id varchar(100),
+	state_id varchar(100),
 	user_id bigint unsigned not null,
     constraint primary key (id),
     constraint foreign key(user_id) references users(id)
@@ -96,7 +96,7 @@ create table businesses(
     street varchar(150) not null,
     `number` varchar(10) not null,
     constraint primary key(id),
-	constraint foreign key(state_id) references state(id)
+	constraint foreign key(state_id) references states(id)
 );
 
 create table doctor_business(
