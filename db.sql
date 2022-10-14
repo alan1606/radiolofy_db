@@ -84,6 +84,7 @@ create table doctors(
 create table areas(
 	id bigint unsigned not null auto_increment,
     `name` varchar(150) not null,
+    duration_minutes int unsigned not null,
     constraint primary key (id)
 );
 
